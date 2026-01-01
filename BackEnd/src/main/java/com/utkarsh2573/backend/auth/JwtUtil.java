@@ -1,7 +1,5 @@
 package com.utkarsh2573.backend.auth;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -14,10 +12,11 @@ public class JwtUtil {
     @Value("${JWT_SECRET}")
     private String secret;
 
-    public String generate(String user, String role) {
+    public String generate(String username, String role) {
         return Jwts.builder()
-                .setSubject(user)
+                .setSubject(username)
                 .claim("role", role)
+                .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000))
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
                 .compact();

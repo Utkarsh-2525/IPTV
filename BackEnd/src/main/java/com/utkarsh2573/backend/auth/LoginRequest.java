@@ -1,4 +1,4 @@
 package com.utkarsh2573.backend.auth;
 
-public class LoginRequest {
+public record LoginRequest(String username, String password) {
 }
