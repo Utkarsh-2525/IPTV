@@ -1,19 +1,32 @@
 package com.utkarsh2573.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
-@Entity
 public class Channel {
-
-    @Id
-    @GeneratedValue
-    private Long id;
 
     private String name;
     private String logo;
     private String streamUrl;
+    private String group;
 
-    // getters & setters
+    public Channel(String name, String logo, String streamUrl, String group) {
+        this.name = name;
+        this.logo = logo;
+        this.streamUrl = streamUrl;
+        this.group = group;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public String getStreamUrl() {
+        return streamUrl;
+    }
+
+    public String getGroup() {
+        return group;
+    }
 }

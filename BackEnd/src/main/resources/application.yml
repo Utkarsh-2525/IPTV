@@ -1,12 +1,2 @@
 server:
-    port: ${PORT:8080}
-
-spring:
-    datasource:
-        url: jdbc:sqlite:iptv.db
-        driver-class-name: org.sqlite.JDBC
-    jpa:
-        hibernate:
-            ddl-auto: update
-
-JWT_SECRET: ${JWT_SECRET}
+    port: 8080
